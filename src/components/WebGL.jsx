@@ -17,10 +17,10 @@ function WebGL({ sceneName }) {
     isLoaded,
     loadingProgression,
   } = useUnityContext({
-    loaderUrl: "Build/findit.loader.js",
-    dataUrl: "Build/findit.data",
-    frameworkUrl: "Build/findit.framework.js",
-    codeUrl: "Build/findit.wasm",
+    loaderUrl: "webgl/build.loader.js",
+    dataUrl: "webgl/build.data",
+    frameworkUrl: "webgl/build.framework.js",
+    codeUrl: "webgl/build.wasm",
   });
 
   //React to Unity 함수
