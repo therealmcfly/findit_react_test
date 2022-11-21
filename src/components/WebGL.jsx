@@ -4,7 +4,7 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 const projectsList =
   '{"projects" :[{"projName": "l_proj01", "imgUrl" : ""}, {"projName": "l_proj10"}, {"projName": "l_proj15"}]}';
 
-const username = "user01";
+//giconst username = "user01";
 
 function WebGL({ sceneName }) {
   const [projectName, setProjectName] = useState();
