@@ -31,11 +31,12 @@ function WebGL({ sceneName }) {
     setIsEnteredScene(true);
 
     sendMessage(sceneName + "Manager", "enter" + sceneName, projectsList);
-    sendMessage("Player(Clone)", "spawnAvatar", username);
+    //sendMessage("Player(Clone)", "spawnAvatar", username);
   };
 
   const closeProjWindow = () => {
     sendMessage(sceneName + "Manager", "closeProjWindow");
+    sendMessage("Player(Clone)", "enablePlayerControl");
     setProjWindowOpen(false);
   };
 
