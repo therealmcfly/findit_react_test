@@ -4,7 +4,7 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 const projectsList =
   '{"projects" :[{"projName": "l_proj01", "imgUrl" : ""}, {"projName": "l_proj10"}, {"projName": "l_proj15"}]}';
 
-//giconst username = "user01";
+const username = "user01";
 
 function WebGL({ sceneName }) {
   const [projectName, setProjectName] = useState();
@@ -21,7 +21,6 @@ function WebGL({ sceneName }) {
   } = useUnityContext({
     loaderUrl: "webgl/build.loader.js",
     dataUrl: "webgl/build.data",
-
     frameworkUrl: "webgl/build.framework.js",
     codeUrl: "webgl/build.wasm",
   });
@@ -29,9 +28,8 @@ function WebGL({ sceneName }) {
   //React to Unity 함수
   const enterScene = () => {
     setIsEnteredScene(true);
-
     sendMessage(sceneName + "Manager", "enter" + sceneName, projectsList);
-    //sendMessage("Player(Clone)", "spawnAvatar", username);
+    sendMessage(sceneName + "Manager", "setUsername", username);
   };
 
   const closeProjWindow = () => {
