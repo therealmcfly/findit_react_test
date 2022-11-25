@@ -38,5 +38,6 @@
 }
 
 .window {
+	padding: "1%";
 	position: absolute;
 }
