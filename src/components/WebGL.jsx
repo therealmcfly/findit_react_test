@@ -49,9 +49,9 @@ function WebGL({ sceneName, onClick }) {
     sendMessage("ChatManager", "toggleChatContainer");
   };
 
-  const submitInputValueToWebgl = () => {
-    sendMessage(sceneName + "Manager", "submitInputField", inputValue);
-  };
+  const sendMessageTest = () => {
+    sendMessage(sceneName + "Manager", "submitInputField", "한글도되?");
+  }
   //Unity to React 함수
   const interactProject = useCallback((projName) => {
     setProjWindowOpen(true);
@@ -115,6 +115,7 @@ function WebGL({ sceneName, onClick }) {
       </div>
       <button onClick={popupChat}>Chat</button>
       <h2>{numOfPlayers}</h2>
+      <button onClick={sendMessageTest}>ChatTextInputTest</button>
     </>
   );
 }
