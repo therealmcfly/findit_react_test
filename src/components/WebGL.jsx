@@ -4,6 +4,8 @@ import { Unity, useUnityContext } from "react-unity-webgl";
 const projectsList =
   '{"projects" :[{"projName": "l_proj01", "imgUrl": "https://find-it.kr/mallimg/2022/11/15/1668495125_9798.jpg"}, {"projName": "l_proj10"}, {"projName": "l_proj15"}]}';
 
+const url = "https://www.youtube.com/watch?v=DDerwEIyO4w";
+
 const username = "user01";
 
 function WebGL({ sceneName, onClick }) {
@@ -35,7 +37,7 @@ function WebGL({ sceneName, onClick }) {
   //React to Unity 함수
   const enterScene = () => {
     setIsEnteredScene(true);
-    sendMessage(sceneName + "Manager", "enter" + sceneName, projectsList);
+    sendMessage(sceneName + "Manager", "enter" + sceneName, url);
     sendMessage(sceneName + "Manager", "setUsername", username);
   };
 
@@ -51,7 +53,7 @@ function WebGL({ sceneName, onClick }) {
 
   const sendMessageTest = () => {
     sendMessage(sceneName + "Manager", "submitInputField", "한글도되?");
-  }
+  };
   //Unity to React 함수
   const interactProject = useCallback((projName) => {
     setProjWindowOpen(true);
