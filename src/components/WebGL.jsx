@@ -2,9 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 const projectsList =
-  '{"projects" :[{"projName": "l_proj01", "imgUrl": "https://find-it.kr/mallimg/2022/11/15/1668495125_9798.jpg"}, {"projName": "l_proj10"}, {"projName": "l_proj15"}]}';
+  '{"projects" :[{"projPosName": "l_proj01", "imgUrl": "https://find-it.kr/mallimg/2022/11/15/1668495125_9798.jpg"}, {"projPosName": "l_proj10"}, {"projPosName": "l_proj15"}]}';
 
-const username = "user01";
+const username = "user02";
+const youtubeUrl = "https://www.youtube.com/watch?v=lUrWJVCCVGc&t=186s";
+
+const port = 8880;
 
 function WebGL({ sceneName, onClick }) {
   const [projectName, setProjectName] = useState();
@@ -22,10 +25,10 @@ function WebGL({ sceneName, onClick }) {
     loadingProgression,
     requestPointerLock,
   } = useUnityContext({
-    loaderUrl: "webgl/build.loader.js",
-    dataUrl: "webgl/build.data",
-    frameworkUrl: "webgl/build.framework.js",
-    codeUrl: "webgl/build.wasm",
+    loaderUrl: "webgl/webgl_builds.loader.js",
+    dataUrl: "webgl/webgl_builds.data",
+    frameworkUrl: "webgl/webgl_builds.framework.js",
+    codeUrl: "webgl/webgl_builds.wasm",
   });
 
   const handleChange = (e) => {
@@ -35,6 +38,8 @@ function WebGL({ sceneName, onClick }) {
   //React to Unity 함수
   const enterScene = () => {
     setIsEnteredScene(true);
+
+    sendMessage(sceneName + "Manager", "setPort", port);
     sendMessage(sceneName + "Manager", "enter" + sceneName, projectsList);
     sendMessage(sceneName + "Manager", "setUsername", username);
   };
@@ -67,6 +72,7 @@ function WebGL({ sceneName, onClick }) {
     addEventListener("focusProject", setProjectName); // projectName state로 바인딩
     addEventListener("interactProject", interactProject); // interactProject 함수로 바인딩
     addEventListener("updateNumOfPlayers", setNumOfPlayers); // interactProject 함수로 바인딩
+    addEventListener("closeChat", setNumOfPlayers);
 
     return () => {
       removeEventListener("focusProject", setProjectName);
