@@ -118,7 +118,7 @@ function WebGL({ sceneName, onClick }) {
         unityProvider={unityProvider}
       />
       <div>
-        <input type="text" onChange={handleChange} />
+        <input type="text" />
       </div>
       <button onClick={popupChat}>Chat</button>
       <h2>{numOfPlayers}</h2>
