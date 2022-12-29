@@ -2,7 +2,7 @@ import "./App.css";
 import WebGL from "./components/WebGL";
 
 function App() {
-  const handleOnClick = () => {};
+  //const handleOnClick = () => {};
   return (
     <>
       <WebGL sceneName="Gallery" />

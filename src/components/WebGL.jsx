@@ -5,7 +5,7 @@ const projectsList =
   '{"projects" :[{"projPosName": "l_proj01", "imgUrl": "https://find-it.kr/mallimg/2022/11/15/1668495125_9798.jpg"}, {"projPosName": "l_proj10"}, {"projPosName": "l_proj15"}]}';
 
 const username = "user02";
-const youtubeUrl = "https://www.youtube.com/watch?v=lUrWJVCCVGc&t=186s";
+//const youtubeUrl = "https://www.youtube.com/watch?v=lUrWJVCCVGc&t=186s";
 
 const port = 8880;
 
@@ -54,18 +54,19 @@ function WebGL({ sceneName, onClick }) {
     sendMessage("ChatManager", "toggleChatContainer");
   };
 
-  const submitInputValueToWebgl = () => {
-    sendMessage(sceneName + "Manager", "submitInputField", inputValue);
-  };
+  //const submitInputValueToWebgl = () => {
+  //sendMessage(sceneName + "Manager", "submitInputField", inputValue);
+  //};
+
   //Unity to React 함수
   const interactProject = useCallback((projName) => {
     setProjWindowOpen(true);
     setProjectName(projName);
   }, []);
 
-  const reqPointerLock = () => {
-    requestPointerLock();
-  };
+  //const reqPointerLock = () => {
+  //requestPointerLock();
+  //};
 
   useEffect(() => {
     //Unity to React 이벤트 리스너
