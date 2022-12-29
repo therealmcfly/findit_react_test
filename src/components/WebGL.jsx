@@ -14,7 +14,7 @@ function WebGL({ sceneName, onClick }) {
   const [isProjWindowOpen, setProjWindowOpen] = useState(false);
   const [isEnteredScene, setIsEnteredScene] = useState(false);
   const [numOfPlayers, setNumOfPlayers] = useState();
-  const [inputValue, setInputValue] = useState("");
+  //const [inputValue, setInputValue] = useState("");
 
   const {
     unityProvider,
@@ -31,9 +31,9 @@ function WebGL({ sceneName, onClick }) {
     codeUrl: "webgl/webgl_builds.wasm",
   });
 
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-  };
+  //const handleChange = (e) => {
+  //setInputValue(e.target.value);
+  //};
 
   //React to Unity 함수
   const enterScene = () => {
